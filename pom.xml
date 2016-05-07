@@ -274,7 +274,7 @@
 
 
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${logger.version}</version>
@@ -283,7 +283,7 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${logger.version}</version>
-        </dependency>
+        </dependency>-->
 
 
         <dependency>
