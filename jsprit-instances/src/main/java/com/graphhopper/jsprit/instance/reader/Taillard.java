@@ -27,8 +27,10 @@ package com.graphhopper.jsprit.instance.reader;
 //import java.util.concurrent.Executors;
 //import java.util.concurrent.TimeUnit;
 //
-//import org.apache.log4j.Level;
-//import org.apache.log4j.Logger;
+//import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 //import org.matsim.contrib.freight.vrp.algorithms.rr.costCalculators.JobInsertionCalculator;
 //import org.matsim.contrib.freight.vrp.algorithms.rr.costCalculators.RouteAgentFactory;
 //import org.matsim.contrib.freight.vrp.algorithms.rr.listener.RuinAndRecreateReport;
@@ -115,7 +117,7 @@ package com.graphhopper.jsprit.instance.reader;
 //
 //	public static final String VFM = "vfm";
 //
-//	private static Logger logger = Logger.getLogger(Christophides.class);
+//	private static Logger logger = LoggerFactory.getLogger(Christophides.class);
 //
 //	private String fileNameOfInstance;
 //

@@ -53,8 +53,10 @@ import com.graphhopper.jsprit.core.problem.vehicle.*;
 import com.graphhopper.jsprit.core.util.ActivityTimeTracker;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.net.URL;
@@ -347,7 +349,7 @@ public class VehicleRoutingAlgorithms {
 
     }
 
-    private static Logger log = LogManager.getLogger(VehicleRoutingAlgorithms.class.getName());
+    private static Logger log = LoggerFactory.getLogger(VehicleRoutingAlgorithms.class.getName());
 
     private VehicleRoutingAlgorithms() {
     }

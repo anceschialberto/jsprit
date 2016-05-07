@@ -26,12 +26,14 @@ import com.graphhopper.jsprit.core.problem.solution.route.VehicleRoute;
 import com.graphhopper.jsprit.core.problem.solution.route.state.RouteAndActivityStateGetter;
 import com.graphhopper.jsprit.core.problem.vehicle.Vehicle;
 import com.graphhopper.jsprit.core.problem.vehicle.VehicleImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 final class JobInsertionConsideringFixCostsCalculator implements JobInsertionCostsCalculator, SoftRouteConstraint {
 
-    private static final Logger logger = LogManager.getLogger(JobInsertionConsideringFixCostsCalculator.class);
+    private static final Logger logger = LoggerFactory.getLogger(JobInsertionConsideringFixCostsCalculator.class);
 
     private final JobInsertionCostsCalculator standardServiceInsertion;
 

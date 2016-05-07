@@ -39,8 +39,10 @@ import com.graphhopper.jsprit.core.problem.vehicle.InfiniteFleetManagerFactory;
 import com.graphhopper.jsprit.core.problem.vehicle.VehicleFleetManager;
 import com.graphhopper.jsprit.core.util.Solutions;
 import junit.framework.Assert;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -54,7 +56,7 @@ public class BuildPDVRPAlgoFromScratch_IT {
 
     VehicleRoutingAlgorithm vra;
 
-    static Logger log = LogManager.getLogger(BuildPDVRPAlgoFromScratch_IT.class);
+    static Logger log = LoggerFactory.getLogger(BuildPDVRPAlgoFromScratch_IT.class);
 
     @Before
     public void setup() {

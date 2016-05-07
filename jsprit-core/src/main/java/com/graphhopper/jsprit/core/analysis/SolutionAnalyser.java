@@ -29,8 +29,10 @@ import com.graphhopper.jsprit.core.problem.solution.VehicleRoutingProblemSolutio
 import com.graphhopper.jsprit.core.problem.solution.route.VehicleRoute;
 import com.graphhopper.jsprit.core.problem.solution.route.activity.*;
 import com.graphhopper.jsprit.core.util.ActivityTimeTracker;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -437,7 +439,7 @@ public class SolutionAnalyser {
         }
     }
 
-    private static final Logger log = LogManager.getLogger(SolutionAnalyser.class);
+    private static final Logger log = LoggerFactory.getLogger(SolutionAnalyser.class);
 
     private VehicleRoutingProblem vrp;
 

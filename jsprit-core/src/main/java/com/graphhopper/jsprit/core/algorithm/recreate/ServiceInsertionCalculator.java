@@ -32,8 +32,10 @@ import com.graphhopper.jsprit.core.problem.solution.route.activity.Start;
 import com.graphhopper.jsprit.core.problem.solution.route.activity.TimeWindow;
 import com.graphhopper.jsprit.core.problem.solution.route.activity.TourActivity;
 import com.graphhopper.jsprit.core.problem.vehicle.Vehicle;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.util.Iterator;
 
@@ -44,7 +46,7 @@ import java.util.Iterator;
  */
 final class ServiceInsertionCalculator implements JobInsertionCostsCalculator {
 
-    private static final Logger logger = LogManager.getLogger(ServiceInsertionCalculator.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServiceInsertionCalculator.class);
 
     private HardRouteConstraint hardRouteLevelConstraint;
 

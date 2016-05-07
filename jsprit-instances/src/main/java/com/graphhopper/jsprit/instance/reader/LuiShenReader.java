@@ -25,8 +25,10 @@ import com.graphhopper.jsprit.core.problem.solution.route.activity.TimeWindow;
 import com.graphhopper.jsprit.core.problem.vehicle.VehicleImpl;
 import com.graphhopper.jsprit.core.problem.vehicle.VehicleTypeImpl;
 import com.graphhopper.jsprit.core.util.Coordinate;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -36,7 +38,7 @@ import java.io.IOException;
 
 public class LuiShenReader {
 
-    private static Logger logger = LogManager.getLogger(LuiShenReader.class);
+    private static Logger logger = LoggerFactory.getLogger(LuiShenReader.class);
 
     private final VehicleRoutingProblem.Builder vrpBuilder;
 

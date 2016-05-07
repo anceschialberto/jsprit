@@ -27,15 +27,17 @@ import com.graphhopper.jsprit.core.problem.solution.VehicleRoutingProblemSolutio
 import com.graphhopper.jsprit.core.util.Resource;
 import com.graphhopper.jsprit.core.util.Solutions;
 import org.apache.commons.math.stat.descriptive.moment.StandardDeviation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.net.URL;
 import java.util.Collection;
 
 public class SchrimpfInitialThresholdGenerator implements AlgorithmStartsListener {
 
-    private static Logger logger = LogManager.getLogger(SchrimpfInitialThresholdGenerator.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(SchrimpfInitialThresholdGenerator.class.getName());
 
     private SchrimpfAcceptance schrimpfAcceptance;
 

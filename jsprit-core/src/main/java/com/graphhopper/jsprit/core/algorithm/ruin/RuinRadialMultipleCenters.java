@@ -20,8 +20,10 @@ import com.graphhopper.jsprit.core.algorithm.ruin.distance.JobDistance;
 import com.graphhopper.jsprit.core.problem.VehicleRoutingProblem;
 import com.graphhopper.jsprit.core.problem.job.Job;
 import com.graphhopper.jsprit.core.problem.solution.route.VehicleRoute;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.util.*;
 
@@ -36,7 +38,7 @@ import java.util.*;
 @Deprecated
 public final class RuinRadialMultipleCenters extends AbstractRuinStrategy {
 
-    private Logger logger = LogManager.getLogger(RuinRadialMultipleCenters.class);
+    private Logger logger = LoggerFactory.getLogger(RuinRadialMultipleCenters.class);
 
     private VehicleRoutingProblem vrp;
 
