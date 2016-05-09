@@ -40,8 +40,14 @@ import org.apache.xml.serialize.XMLSerializer;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -133,6 +139,69 @@ public class VrpXMLWriter {
         }
 
 
+    }
+
+    public String writeIntoString() {
+        log.info("create vrp XML string");
+        XMLConf xmlConfig = new XMLConf();
+        xmlConfig.setRootElementName("problem");
+        xmlConfig.setAttributeSplittingDisabled(true);
+        xmlConfig.setDelimiterParsingDisabled(true);
+
+        writeProblemType(xmlConfig);
+        writeVehiclesAndTheirTypes(xmlConfig);
+
+        //might be sorted?
+        List<Job> jobs = new ArrayList<Job>();
+        jobs.addAll(vrp.getJobs().values());
+        for (VehicleRoute r : vrp.getInitialVehicleRoutes()) {
+            jobs.addAll(r.getTourActivities().getJobs());
+        }
+
+        writeServices(xmlConfig, jobs);
+        writeShipments(xmlConfig, jobs);
+
+        writeInitialRoutes(xmlConfig);
+        writeSolutions(xmlConfig);
+
+
+        OutputFormat format = new OutputFormat();
+        format.setIndenting(true);
+        format.setIndent(5);
+
+        Document document = null;
+
+        try {
+            document = xmlConfig.createDoc();
+
+            Element element = document.getDocumentElement();
+            element.setAttribute("xmlns", "http://www.w3schools.com");
+            element.setAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            element.setAttribute("xsi:schemaLocation", "http://www.w3schools.com vrp_xml_schema.xsd");
+
+        } catch (ConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+        return docToString(document);
+
+    }
+
+    public static String docToString(Document doc) {
+        try {
+            StringWriter sw = new StringWriter();
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
+            transformer.transform(new DOMSource(doc), new StreamResult(sw));
+            return sw.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException("Error converting to String", ex);
+        }
     }
 
     private void writeInitialRoutes(XMLConf xmlConfig) {
